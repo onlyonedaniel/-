@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+{%  endblock%}
+{% block main%}
+    <div id='detail' class="container">
+        <img src="{% static cardetail.0.picture.url %}" alt="">
+        <p>
+            <span>
+                {{ cardetail.0.serbran.btitle}}&nbsp&nbsp{{ cardetail.0.ctitle }}
+            </span>
+            <span id="price">
+                {{ cardetail.0.mileage }}公里/万
+            </span>
+        </p>
+        <p>
+            价格：<em>{{ cardetail.0.price}}</em>万元
+
+            <a href="{%url 'addorder'%}?carid={{ carid}}">我要购买</a>
+        </p>
+        <p>
+            <s>新车指导价：{{ cardetail.0.newprice}}万</s>
+        </p>
+
+    </div>
+{% endblock %}

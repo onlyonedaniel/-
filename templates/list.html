@@ -1,0 +1,27 @@
+{% extends 'index.html'%}
+{% load static %}
+{#{% block wantbuy %}#}
+{#{% endblock %}#}
+{% block f1-right %}
+{% endblock %}
+{% block popular_car %}
+    {% for popular in car_list %}
+        <div>
+          <img src="{% static popular.picture.url%}" alt="">
+          <p>
+            <span>
+              {{ popular.serbran.btitle }} {{ popular.ctitle }}
+              <i>{{ popular.mileage }}</i>公里/万
+            </span>
+            <br>
+            <em><span>{{ popular.price }}</span>万元</em>
+            <a href="{% url 'detail'%}?carid={{popular.id}}">查看</a>
+            <br>
+            <s>新车指导价：{{ popular.newprice }}万</s>
+          </p>
+        </div>
+    {% endfor %}
+
+{% endblock %}
+{% block picture_list %}
+{% endblock %}
